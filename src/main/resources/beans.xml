@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <!-- Definition for FilCollection -->
+    <bean id="fileCollection" class="in.filecollection.FileCollection">
+        <!-- results in a setAddressList(java.util.List) call -->
+        <property name="FileList">
+            <list>
+                <value>D:/HelloWorld.docx</value>
+                <value>D:/HelloWorld1.docx</value>
+                <value>D:/HelloWorld2.docx</value>
+            </list>
+        </property>
+    </bean>
+    <!-- Definition of FileAccesTime -->
+    <bean id="fileAccessTime" class="in.filecollection.FileAccessTime">
+        <property name="fcollection">
+            <ref local="fileCollection" />
+        </property>
+    </bean>
+</beans>
